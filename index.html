@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 최상단 네비게이션 바 -->
+    <nav class="gnb-nav">
+        <!-- <div class="gnb-logo">OPTC-QnA</div> --> <!-- 로고 삭제 -->
+        <ul class="gnb-menu">
+            <li><a href="#">캐릭터DB <span class="arrow">&#9654;</span></a></li>
+            <li><a href="#">선박DB <span class="arrow">&#9654;</span></a></li>
+            <li><a href="#">해적제DB <span class="arrow">&#9654;</span></a></li>
+            <li><a href="#">칭호DB <span class="arrow">&#9654;</span></a></li>
+            <li><a href="#" class="active">서포트 캐릭터DB <span class="arrow">&#9654;</span></a></li>
+            <li><a href="#">칭호DB <span class="arrow">&#9654;</span></a></li>
+            <li><a href="#">뉴비 출항 가이드 <span class="arrow">&#9654;</span></a></li>
+            <li><a href="#">공지사항 <span class="arrow">&#9654;</span></a></li>
+        </ul>
+        <!-- 햄버거 아이콘 (모바일용) -->
+        <button class="gnb-hamburger" id="gnbHamburgerBtn" aria-label="메뉴 열기">
+            <img src="svg/Frame 8.svg" alt="메뉴 열기 아이콘" width="20" height="24" />
+        </button>
+        <!-- 모바일 드롭다운 메뉴 (햄버거 아이콘 바로 아래) -->
+        <nav class="gnb-mobile-menu" id="gnbMobileMenu">
+            <ul>
+                <li><a href="#">캐릭터DB <span class="arrow">&#9654;</span></a></li>
+                <li><a href="#">선박DB <span class="arrow">&#9654;</span></a></li>
+                <li><a href="#">해적제DB <span class="arrow">&#9654;</span></a></li>
+                <li><a href="#">칭호DB <span class="arrow">&#9654;</span></a></li>
+                <li><a href="#" class="active">서포트 캐릭터DB <span class="arrow">&#9654;</span></a></li>
+                <li><a href="#">칭호DB <span class="arrow">&#9654;</span></a></li>
+                <li><a href="#">뉴비 출항 가이드 <span class="arrow">&#9654;</span></a></li>
+                <li><a href="#">공지사항 <span class="arrow">&#9654;</span></a></li>
+            </ul>
+        </nav>
+    </nav>
+    <div class="notice-wrapper">
+        <!-- 상단 큰 제목 -->
+        <h1 class="notice-title">유저들이 자주묻는 질문</h1>
+        <div class="notice-top-bar">
+            <!-- 반응형 카테고리 드롭다운 (980px 이하에서만 보임) -->
+            <div class="category-dropdown">
+                <button class="category-dropdown-btn" id="categoryDropdownBtn">
+                    <span id="categoryDropdownSelected">전체</span>
+                    <span class="dropdown-arrow">
+                        <!-- ▼ 아이콘을 SVG 이미지로 대체 -->
+                        <img src="svg/Frame 9.svg" alt="드롭다운 화살표" width="16" height="16" style="vertical-align:middle;" />
+                    </span>
+                </button>
+                <ul class="category-dropdown-list" id="categoryDropdownList">
+                    <li data-category="전체">전체</li>
+                    <li data-category="캐릭터">캐릭터</li>
+                    <li data-category="컨텐츠">컨텐츠</li>
+                    <li data-category="육성">육성</li>
+                    <li data-category="보계">보계</li>
+                    <li data-category="기타">기타</li>
+                </ul>
+            </div>
+            <!-- 기존 카테고리 버튼 (981px 이상에서만 보임) -->
+            <nav class="notice-categories">
+                <button class="category-tab active" data-category="전체">전체</button>
+                <button class="category-tab" data-category="캐릭터">캐릭터</button>
+                <button class="category-tab" data-category="컨텐츠">컨텐츠</button>
+                <button class="category-tab" data-category="육성">육성</button>
+                <button class="category-tab" data-category="보계">보계</button>
+                <button class="category-tab" data-category="기타">기타</button>
+            </nav>
+            <div class="notice-search-box">
+                <input type="text" id="notice-search-input" placeholder="제목 검색" autocomplete="off" />
+            </div>
+        </div>
+        <!-- 공지사항 리스트 영역 -->
+        <div id="notice-list"></div>
+        <!-- 페이지네이션 영역 추가 -->
+        <div id="pagination"><!-- 페이지네이션이 여기에 표시됩니다 --></div>
+    </div>
+    <script src="noticeData_캐릭터.js"></script>
+    <script src="noticeData_컨텐츠.js"></script>
+    <script src="noticeData_육성.js"></script>
+    <script src="noticeData_보계.js"></script>
+    <script src="noticeData_기타.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

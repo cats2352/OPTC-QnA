@@ -1,0 +1,616 @@
+/* Pretendard 폰트 적용 (전체) */
+body, .notice-wrapper, .accordion-item, .accordion-title, .notice-category, .notice-date, .accordion-content {
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', 'Nanum Gothic', Arial, sans-serif;
+}
+
+/* 전체 페이지에서 가로 스크롤이 생기지 않도록 처리 */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* 공지사항 전체 래퍼 - 가로 넘침 방지 */
+.notice-wrapper {
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    word-break: break-all; /* 긴 단어/링크 등 줄바꿈 */
+}
+
+/* 아코디언 내용, 제목 등도 가로 넘침 방지 */
+.accordion-content, .accordion-title, .notice-category, .notice-date {
+    word-break: break-all;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+/* 상단 큰 제목 */
+.notice-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 32px;
+    margin-top: 32px;
+    letter-spacing: -2px;
+}
+
+/* 전체 레이아웃 좌우 분할 */
+.notice-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    min-height: 500px;
+}
+
+/* 상단 바(카테고리+검색) 가로 배치 */
+.notice-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #ececec;
+    margin-bottom: 24px;
+    gap: 24px;
+}
+
+/* 카테고리 탭 가로 배치 */
+.notice-categories {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+}
+
+.notice-categories .category-tab {
+    background: none;
+    border: none;
+    font-size: 1.08rem;
+    color: #888;
+    padding: 12px 0 10px 0;
+    cursor: pointer;
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', 'Nanum Gothic', Arial, sans-serif;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-bottom 0.2s;
+    margin-bottom: -2px;
+}
+
+.notice-categories .category-tab.active {
+    color: #222;
+    font-weight: bold;
+    border-bottom: 2px solid #222;
+}
+
+.notice-search-box {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+#notice-search-input {
+    width: 180px;
+    height: 36px;
+    padding: 0 14px;
+    border: 1px solid #d1d1d1;
+    border-radius: 18px;
+    font-size: 1rem;
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', 'Nanum Gothic', Arial, sans-serif;
+    outline: none;
+    transition: border 0.2s;
+    background: #fafbfc;
+}
+
+#notice-search-input:focus {
+    border: 1.5px solid #888;
+    background: #fff;
+}
+
+/* 기존 가로 카테고리 탭 스타일 제거 */
+.category-tabs-wrapper, .category-tabs { display: none !important; }
+
+/* 공지 목록 스타일 (아코디언 컨테이너 재사용) */
+.accordion-container {
+    margin-top: 0;
+    box-shadow: none;
+    padding: 0;
+    background: none;
+}
+
+/* 공지 아이템(아코디언) 한 줄 가로 배치 - 세로 간격 넓힘 */
+.accordion-item {
+    display: flex;
+    flex-direction: column; /* 세로로 쌓고, 제목/내용 분리 */
+    border-bottom: 1px solid #ececec;
+    background: #fff;
+    border-radius: 0;
+    margin: 0 0 18px 0; /* 아이템 간 간격 */
+    min-height: 56px;
+    padding: 0 0 8px 0;
+}
+
+/* 분류, 제목, 날짜를 한 줄에 가로로 배치 */
+.accordion-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 0 0 0;
+}
+
+/* 분류(카테고리) - 폰트 크기 살짝 작게 */
+.notice-category {
+    min-width: 110px;
+    max-width: 140px;
+    color: #888;
+    font-size: 0.98rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    white-space: nowrap;
+    margin-right: 24px;
+}
+
+/* 제목(아코디언 버튼) - 폰트 크기 살짝 작게 */
+.accordion-title {
+    flex: 1 1 auto;
+    background: none;
+    border: none;
+    outline: none;
+    text-align: left;
+    font-size: 1.08rem;
+    font-weight: bold;
+    padding: 16px 0 16px 0;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 0;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    margin: 0 24px 0 0;
+}
+
+.accordion-title:hover {
+    background: #f5f6fa;
+}
+
+/* 날짜 - 폰트 크기 살짝 작게 */
+.notice-date {
+    min-width: 120px;
+    max-width: 140px;
+    color: #7a7a7a;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    white-space: nowrap;
+}
+
+/* 아코디언이 닫혔을 때 내용이 완전히 숨겨지도록 수정 */
+.accordion-content {
+    width: 100%;
+    background: #f9fafb;
+    border-radius: 0 0 6px 6px;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0; /* 닫혔을 때 패딩 없음 */
+    font-size: 1.04rem;
+    color: #333;
+    box-sizing: border-box;
+    border: none; /* 닫혔을 때 테두리 없음 */
+}
+
+/* 아코디언이 열렸을 때만 내용이 보임 */
+.accordion-item.active .accordion-content {
+    max-height: 300px;
+    padding: 18px 24px 18px 24px;
+    overflow: auto;
+    border-top: 1px solid #ececec; /* 열린 상태에서만 테두리 */
+} 
+
+/* 네비게이션 바를 relative로 설정 (햄버거 아이콘 기준 위치) */
+.gnb-nav {
+    position: relative;
+    z-index: 2000;
+    background: #fff;
+}
+/* 햄버거 아이콘을 네비게이션 바의 더 우측에 붙임 */
+/* 햄버거 아이콘을 더 상단에 위치시키기 위해 top 값을 조정 */
+/* 햄버거 아이콘이 모바일 메뉴 위에 항상 보이도록 z-index를 높임 */
+/* 햄버거 아이콘 배경을 투명하게 하여 아이콘만 보이게 함 */
+.gnb-hamburger {
+    position: absolute;
+    top: -12px;
+    right: 12px;
+    z-index: 99999;
+    margin: 0;
+    background: transparent;
+    border: none;
+    display: none;
+    width: 38px;
+    height: 54px;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+    box-shadow: none;
+}
+
+/* 모바일 오버레이 메뉴 - 우측에 딱 붙게 */
+.gnb-mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.32);
+    z-index: 9999;
+    justify-content: flex-end;
+    align-items: stretch;
+    transition: background 0.2s;
+}
+.gnb-mobile-overlay.show {
+    display: flex !important;
+}
+
+/* 모바일 메뉴가 햄버거 아이콘을 가리지 않도록 padding-top 추가 */
+.gnb-mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    z-index: 30000;
+    animation: slideDown 0.25s;
+    border-bottom: 1px solid #ececec;
+    padding-top: 54px; /* 햄버거 아이콘 높이만큼 여백 */
+}
+.gnb-mobile-menu.show {
+    display: block !important;
+}
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.gnb-mobile-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 16px 0 0 0;
+    width: 100%;
+}
+.gnb-mobile-menu li {
+    border-bottom: 1px solid #ececec;
+}
+.gnb-mobile-menu a {
+    display: flex;
+    align-items: center;
+    font-size: 1.13rem;
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 18px 28px;
+    transition: color 0.2s;
+}
+.gnb-mobile-menu a.active {
+    color: #257cff;
+}
+.gnb-mobile-menu a .arrow {
+    margin-left: auto;
+    color: #b0b0b0;
+    font-size: 1em;
+}
+.gnb-mobile-close {
+    position: absolute;
+    top: 10px; right: 18px;
+    background: none;
+    border: none;
+    font-size: 2.2rem;
+    color: #222;
+    cursor: pointer;
+    z-index: 10100;
+}
+
+/* 오버레이 메뉴가 열릴 때 body 스크롤 방지 */
+body.gnb-mobile-open {
+    overflow: hidden;
+}
+
+/* 데스크탑 네비게이션 메뉴 스타일 */
+.gnb-menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.gnb-menu li {
+    display: flex;
+    align-items: center;
+}
+.gnb-menu a {
+    display: flex;
+    align-items: center;
+    font-size: 1.07rem;
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0 2px;
+    transition: color 0.2s;
+}
+.gnb-menu a.active {
+    color: #222222;
+    font-weight: 700;
+}
+.gnb-menu a:hover {
+    color: #257cff;
+}
+.gnb-menu .arrow {
+    font-size: 0.92em;
+    margin-left: 4px;
+    color: #b0b0b0;
+    display: inline-block;
+    transform: translateY(1px);
+}
+
+/* 반응형: 920px 이하에서 햄버거만 보이게, 오버레이는 .show일 때만 보임 */
+@media (max-width: 920px) {
+    .gnb-menu { display: none !important; }
+    .gnb-hamburger { display: flex !important; }
+    .gnb-nav { justify-content: space-between !important; }
+    /* 우선순위 보장: 햄버거 아이콘은 920px 이하에서 반드시 보이게 */
+    .gnb-hamburger { display: flex !important; }
+
+    /* 공지 아이템을 세로로 쌓기 */
+    .accordion-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 0 18px 0;
+        min-height: unset;
+        margin: 0 0 18px 0;
+    }
+    .accordion-header {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 0;
+    }
+    .notice-category {
+        font-size: 0.98rem;
+        color: #888;
+        font-weight: 500;
+        margin: 0 0 8px 0; /* 제목과 간격 넓힘 */
+        min-width: unset;
+        max-width: unset;
+        padding: 0;
+        justify-content: flex-start;
+    }
+    .accordion-title {
+        font-size: 1.08rem;
+        font-weight: bold;
+        margin: 0 0 8px 0; /* 날짜와 간격 넓힘 */
+        padding: 0;
+        text-align: left;
+        background: none;
+        border: none;
+        width: 100%;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+    }
+    .notice-date {
+        font-size: 0.95rem;
+        color: #7a7a7a;
+        margin: 0 0 8px 0; /* 제목과 간격 넓힘 */
+        padding: 0;
+        min-width: unset;
+        max-width: unset;
+        justify-content: flex-start;
+    }
+    .accordion-content {
+        padding: 0 0 0 0;
+    }
+}
+@media (min-width: 921px) {
+    .gnb-mobile-menu { display: none !important; }
+    .gnb-hamburger { display: none !important; }
+} 
+
+/* 반응형 카테고리 드롭다운 (980px 이하에서만 보임) */
+.category-dropdown {
+    display: none;
+    position: relative;
+    width: 160px;
+}
+.category-dropdown-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 1.13rem;
+    font-weight: bold;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    padding: 8px 12px 8px 0;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+.category-dropdown-btn:focus {
+    outline: 2px solid #257cff;
+}
+.dropdown-arrow {
+    margin-left: 8px;
+    font-size: 1.2em;
+    color: #888;
+    transition: transform 0.2s;
+}
+.category-dropdown-btn.open .dropdown-arrow {
+    transform: rotate(-180deg);
+}
+.category-dropdown-list {
+    display: none;
+    position: absolute;
+    top: 38px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ececec;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    z-index: 2000;
+    padding: 4px 0;
+    margin: 0;
+    list-style: none;
+    animation: fadeIn 0.18s;
+}
+.category-dropdown-list.show {
+    display: block;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.category-dropdown-list li {
+    padding: 10px 18px;
+    font-size: 1.08rem;
+    color: #222;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.category-dropdown-list li:hover,
+.category-dropdown-list li.selected {
+    background: #f5f6fa;
+    color: #257cff;
+}
+
+@media (max-width: 980px) {
+    .category-dropdown { display: block; }
+    .notice-categories { display: none !important; }
+    /* 980px 이하에서 상단 큰 제목을 더 크게 표시 (좌측 정렬로 변경) */
+    .notice-title {
+        font-size: 2.2rem;
+        text-align: left;
+        margin-top: 28px;
+        margin-bottom: 24px;
+    }
+}
+@media (min-width: 981px) {
+    .category-dropdown { display: none !important; }
+    .notice-categories { display: flex !important; }
+} 
+
+/* 페이지네이션 스타일 */
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 24px 0 0 0;
+    font-size: 1.2rem;
+}
+.pagination-page {
+    margin: 0 12px;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.pagination-page.active {
+    color: #00b300; /* 초록색 */
+    font-weight: bold;
+}
+.pagination-arrow {
+    margin: 0 18px;
+    color: #888;
+    cursor: pointer;
+    font-size: 1.3rem;
+    user-select: none;
+}
+.pagination-page:hover, .pagination-arrow:hover {
+    color: #222;
+} 
+
+/* 반응형: 아코디언 내용 영역(.accordion-content) 스타일 조정 (가로 500px 이하) */
+@media (max-width: 500px) {
+    .accordion-content {
+        font-size: 0.98rem;
+        padding: 12px 10px;
+        line-height: 1.5;
+        word-break: keep-all;
+    }
+    .accordion-header {
+        padding: 10px 8px;
+    }
+} 
+
+/* 500px 이하에서 아코디언이 닫혔을 때 완전히 숨김 */
+@media (max-width: 500px) {
+    .accordion-content {
+        max-height: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        overflow: hidden !important;
+    }
+    .accordion-item.active .accordion-content {
+        max-height: 300px !important;
+        padding: 12px 10px !important;
+        border-top: 1px solid #ececec !important;
+        overflow: auto !important;
+    }
+} 
+
+/* 322px 이하에서 카테고리 드롭다운 텍스트가 세로로 깨지지 않도록 반응형 처리 */
+@media (max-width: 322px) {
+    .category-dropdown {
+        min-width: 0;
+        max-width: 100vw;
+        width: 100vw;
+    }
+    .category-dropdown-btn {
+        font-size: 0.98rem;
+        padding: 8px 4px 8px 0;
+        min-width: 0;
+        max-width: 100vw;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .category-dropdown-list {
+        min-width: 0;
+        max-width: 100vw;
+        width: 100vw;
+    }
+    .category-dropdown-list li {
+        font-size: 0.98rem;
+        padding: 8px 8px;
+        min-width: 0;
+        max-width: 100vw;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+} 
+
+/* 330px 이하에서 공지 제목이 길어지면 아래로 자동 줄바꿈되도록 처리 */
+@media (max-width: 330px) {
+    .accordion-title {
+        width: 100%;
+        min-width: 0;
+        max-width: 100vw;
+        white-space: normal;
+        word-break: break-all;
+        overflow: visible;
+        text-overflow: unset;
+        display: block;
+    }
+} 
+
+/* 모바일 메뉴에서 스크롤이 생기지 않도록 모든 메뉴를 항상 다 보이게 함 */
+.gnb-mobile-menu {
+    /* 기존 max-height, overflow-y 등 스크롤 관련 속성 제거 */
+    height: auto !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+} 
+
