@@ -293,7 +293,7 @@ html, body {
     transition: color 0.2s;
 }
 .gnb-mobile-menu a.active {
-    color: #257cff;
+    color: #222;
 }
 .gnb-mobile-menu a .arrow {
     margin-left: auto;
@@ -612,5 +612,27 @@ body.gnb-mobile-open {
     height: auto !important;
     max-height: none !important;
     overflow-y: visible !important;
+} 
+
+/* 모바일(500px 이하)에서 제목, 카테고리, 날짜 영역을 더 넓게 보이도록 조정 */
+@media (max-width: 500px) {
+    .accordion-title {
+        font-size: 1.05rem;
+        padding: 16px 0 16px 0;
+        margin: 0 8px 0 0;
+        width: 100%;
+    }
+    .notice-category {
+        font-size: 0.97rem;
+        margin-right: 8px;
+        min-width: 80px;
+        max-width: 100px;
+    }
+    .notice-date {
+        font-size: 0.93rem;
+        padding-right: 2px;
+        min-width: 80px;
+        max-width: 100px;
+    }
 } 
 
