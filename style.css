@@ -1,6 +1,7 @@
 @font-face {
     font-family: 'Pretendard';
-    src: url('./fonts/pretendardVariable.woff2') format('woff2');
+    /* 폰트 파일명 대소문자 주의! 실제 파일명과 일치시켜야 함 */
+    src: url('./fonts/PretendardVariable.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
