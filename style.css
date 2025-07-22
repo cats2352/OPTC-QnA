@@ -1,6 +1,6 @@
 /* Pretendard 폰트 적용 (전체) */
 body, .notice-wrapper, .accordion-item, .accordion-title, .notice-category, .notice-date, .accordion-content {
-    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', 'Nanum Gothic', Arial, sans-serif;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', sans-serif;
 }
 
 /* 전체 페이지에서 가로 스크롤이 생기지 않도록 처리 */
